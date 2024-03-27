@@ -5,16 +5,18 @@ import jwt from "jsonwebtoken";
 
 //using middleware i.e next
 export const signup = async (req, res, next) => {
+  //getting required parameters from client side aka req.body
   const { username, email, password } = req.body;
   const hashedPassword = bcrypt.hashSync(password, 10);
+  //creating user 
   const newUser = new User({ username, email, password: hashedPassword });
   try {
+    //saving created new user in db
     await newUser.save();
     res.status(201).json({ message: "User created successfully" });
   } catch (error) {
     next(errorHandler(500, "error from server"));
   }
-
   //   console.log(req.body);
 };
 
