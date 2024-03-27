@@ -28,6 +28,7 @@ const SignUp = () => {
       if (data.success === false) {
         setLoading(false);
         setError(data.message);
+        return
       }
       setLoading(false);
       setError(null);
