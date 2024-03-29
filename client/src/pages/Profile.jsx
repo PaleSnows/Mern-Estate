@@ -297,7 +297,9 @@ const Profile = () => {
                 >
                   Delete
                 </button>
-                <button className="text-green-700 uppercase">Edit</button>
+                <Link to={`/update-listing/${listing._id}`}>
+                  <button className="text-green-700 uppercase">Edit</button>
+                </Link>
               </div>
               <p className="text-red-700 mt-5">
                 {deleteistingLoading ? " Loading... " : ""}
