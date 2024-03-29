@@ -267,7 +267,6 @@ const Profile = () => {
       <p className="text-red-700 mt-5">
         {showListingError ? "Error showing lisitngs" : ""}
       </p>
-
       {userListings && userListings.length > 0 && (
         <div className="flex flex-col gap-4">
           <h1 className="text-center mt-7  text-2xl font-semibold">
