@@ -32,6 +32,7 @@ export default function CreateListing() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   console.log(formData);
+
   const handleImageSubmit = (e) => {
     if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
       setUploading(true);
@@ -41,6 +42,7 @@ export default function CreateListing() {
       for (let i = 0; i < files.length; i++) {
         promises.push(storeImage(files[i]));
       }
+      // all ley garda sab promise sidya paxi matra return garchw
       Promise.all(promises)
         .then((urls) => {
           setFormData({
@@ -142,6 +144,7 @@ export default function CreateListing() {
           userRef: currentUser._id,
         }),
       });
+      
       const data = await res.json();
       setLoading(false);
       if (data.success === false) {
@@ -154,7 +157,7 @@ export default function CreateListing() {
     }
   };
 
-  
+
   return (
     <main className='p-3 max-w-4xl mx-auto'>
       <h1 className='text-3xl font-semibold text-center my-7'>
