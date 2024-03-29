@@ -18,6 +18,7 @@ import {
   updateUserStart,
   updateUserSuccess,
 } from "../redux/User/userSlice.js";
+import { Link } from 'react-router-dom'
 
 const Profile = () => {
   const { currentUser, loading, error } = useSelector((state) => state.user);
@@ -187,6 +188,7 @@ const Profile = () => {
         >
           {loading ? "Loading..." : "Update"}
         </button>
+        <Link to={'/create-listings'} className="bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95">Create Lisitings</Link>
       </form>
       <div className="flex justify-between mt-5">
         <span
