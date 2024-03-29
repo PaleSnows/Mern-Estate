@@ -29,6 +29,8 @@ const Profile = () => {
   const [formData, setFormData] = useState({});
   const [showListingError, setShowLisitngError] = useState(false);
   const [showListingLoading, setShowLisitngLoading] = useState(false);
+  const [deleteListingError, setDeleteLisitngError] = useState(false);
+  const [deleteistingLoading, setDeleteLisitngLoading] = useState(false);
   const [userListings, setUserListings] = useState([]);
   const fileRef = useRef(null);
   const dispatch = useDispatch();
@@ -151,6 +153,30 @@ const Profile = () => {
     }
   };
 
+  const handleListingDelete = async (listingIdd) => {
+    try {
+      setDeleteLisitngLoading(true);
+      setDeleteLisitngError(false);
+      const res = await fetch(`/api/listing/delete/${listingIdd}`, {
+        method: "DELETE",
+      });
+      const data = res.json();
+      if (data.success === false) {
+        console.log(data.message);
+        setDeleteLisitngError(data.message);
+        setDeleteLisitngLoading(false);
+        return;
+      }
+      setUserListings((prev) =>
+        prev.filter((listing) => listing._id !== listingIdd)
+      );
+      setDeleteLisitngLoading(false);
+    } catch (error) {
+      setDeleteLisitngError(error);
+      setDeleteLisitngLoading(false);
+    }
+  };
+
   return (
     <div className="p-3 max-w-lg mx-auto gap-4">
       <h1 className="font-semibold text-3xl text-center my-7">Profile</h1>
@@ -244,7 +270,9 @@ const Profile = () => {
 
       {userListings && userListings.length > 0 && (
         <div className="flex flex-col gap-4">
-          <h1 className="text-center mt-7  text-2xl font-semibold">Your Lisitings</h1>
+          <h1 className="text-center mt-7  text-2xl font-semibold">
+            Your Lisitings
+          </h1>
           {userListings.map((listing) => (
             <div
               key={listing._id}
@@ -264,9 +292,20 @@ const Profile = () => {
                 <p>{listing.name}</p>
               </Link>
               <div className="items-center flex flex-col">
-                <button className="text-red-700 uppercase">Delete</button>
+                <button
+                  onClick={() => handleListingDelete(listing._id)}
+                  className="text-red-700 uppercase"
+                >
+                  Delete
+                </button>
                 <button className="text-green-700 uppercase">Edit</button>
               </div>
+              <p className="text-red-700 mt-5">
+                {deleteistingLoading ? " Loading... " : ""}
+              </p>
+              <p className="text-red-700 mt-5">
+                {deleteListingError ? "Error showing lisitngs" : ""}
+              </p>
             </div>
           ))}
         </div>
