@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className=" items-center text-center pt-12 text-slate-100 bg-black h-[360px]">
-      <div className="mx-[200px]  flex mb-[70px]  flex-row justify-between ">
+    <div className=" items-center text-center gap-15   pt-12 text-slate-100 bg-black  h-[760px] sm:h-[360px]">
+      <div className="mx-[1px] sm:mx-[200px]  sm:gap-1 flex mb-[70px]  flex-row  justify-between ">
         <div className="">
-          <h1 className="text-lg font-semibold mb-1">Renzaki Estate</h1>
+          <h1 className="text-lg font-semibold mb-1 text-left">Renzaki Estate</h1>
           <div className="flex text-left flex-col gap-3">
             <Link to={"/"}>Home</Link>
             <Link to={"/about"}>About</Link>
@@ -31,11 +31,11 @@ const Footer = () => {
             <li>Disclaimer</li>
           </ul>
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 ">
           <h1 className="text-lg text-right font-semibold mb-1">
             Get In Touch
           </h1>
-          <div className="flex flex-row  gap-3 cursor-pointer ">
+          <div className="flex flex-wrap sm:flex-row   gap-3 cursor-pointer ">
             <FaFacebook />
             <FaInstagram />
             <FaLinkedin />
@@ -43,7 +43,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <hr className="text-white ml-[200px] w-[1160px]" />
+      <hr className="text-white ml-[1px] sm-[200px] w-[1160px]" />
       <div className="mt-5">
         <p>Copyright @2024 Renzaki, All Right Reserved</p>
       </div>
