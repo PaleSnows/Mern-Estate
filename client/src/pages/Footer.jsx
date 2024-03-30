@@ -30,11 +30,11 @@ const Footer = () => {
             <li>Disclaimer</li>
           </ul>
         </div>
-        <div className="flex flex-col gap-2 ">
+        <div className="flex flex-col gap-2 mr-[5px] sm:mr-[1px] ">
           <h1 className="text-lg text-right font-semibold mb-1">
             Get In Touch
           </h1>
-          <div className="flex flex-col sm:flex-row gap-3 ml-[70px] sm:ml-[1px] sm:text-right cursor-pointer ">
+          <div className="flex flex-col sm:flex-row gap-3 ml-[60px] sm:ml-[1px] sm:text-right cursor-pointer ">
             <FaFacebook  />
             <FaInstagram />
             <FaLinkedin />
