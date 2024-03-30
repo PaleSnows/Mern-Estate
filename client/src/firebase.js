@@ -9,8 +9,8 @@ const firebaseConfig = {
   authDomain: "mern-estate-fd314.firebaseapp.com",
   projectId: "mern-estate-fd314",
   storageBucket: "mern-estate-fd314.appspot.com",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSENGER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  messagingSenderId: "870983883707",
+  appId: "1:870983883707:web:4753a5a398d22b5dad029e",
 };
 
 // Initialize Firebase
