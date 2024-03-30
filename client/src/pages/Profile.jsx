@@ -17,7 +17,7 @@ import {
   updateUserFailure,
   updateUserStart,
   updateUserSuccess,
-} from "../redux/user/userSlice.js";
+} from "../userSlice.js";
 import { Link } from "react-router-dom";
 import Footer from "./Footer.jsx";
 
