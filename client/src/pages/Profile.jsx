@@ -19,6 +19,7 @@ import {
   updateUserSuccess,
 } from "../redux/User/userSlice.js";
 import { Link } from "react-router-dom";
+import Footer from "./Footer.jsx";
 
 const Profile = () => {
   const { currentUser, loading, error } = useSelector((state) => state.user);
@@ -178,6 +179,7 @@ const Profile = () => {
   };
 
   return (
+    <>
     <div className="p-3 max-w-lg mx-auto gap-4">
       <h1 className="font-semibold text-3xl text-center my-7">Profile</h1>
       <form onSubmit={handleSubmit} className="flex flex-col  gap-4">
@@ -312,6 +314,8 @@ const Profile = () => {
         </div>
       )}
     </div>
+      <Footer/>
+      </>
   );
 };
 

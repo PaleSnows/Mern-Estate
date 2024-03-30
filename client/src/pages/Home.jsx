@@ -5,6 +5,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css/bundle";
 import SwiperCore from "swiper";
 import ListingItem from "../components/ListingItem";
+import Footer from "./Footer";
 
 export default function Home() {
   SwiperCore.use([Navigation])
@@ -69,23 +70,7 @@ export default function Home() {
         </Link>
       </div>
 
-      {/* swiper */}
-      {/* <Swiper navigation>
-        {offerListings &&
-          offerListings.length > 0 &&
-          offerListings.map((listing) => (
-            <SwiperSlide>
-              <div className="h-[500px]" key={listing._id}>
-                <img
-                  src={listing.imageUrls[0]}
-                  className="object-cover h-[1000px] w-[3000px]"
-                  alt=""
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-      </Swiper> */}
-      
+      {/* swiper */}   
       <Swiper navigation>
         {offerListings &&
           offerListings.length > 0 &&
@@ -167,6 +152,7 @@ export default function Home() {
           </div>
         )}
       </div>
+      <Footer/>
     </div>
   );
 }
