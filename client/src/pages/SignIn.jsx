@@ -5,7 +5,7 @@ import {
   signInFailure,
   signInStart,
   signInSuccess,
-} from "../userSlice";
+} from "../redux/user/userSlice";
 import OAuth from "../components/OAuth";
 
 const SignIn = () => {
